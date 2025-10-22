@@ -1,59 +1,91 @@
 @import "tailwindcss";
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ============================================================
+   DESPERTAR DESIGN SYSTEM - PIXEL-PERFECT REPLICATION
+   Brand: Despertar - Awakening Platform for Youth
+   Style: Cinematic, Minimalist, Inspirational (Netflix/Apple/MasterClass)
+   ============================================================ */
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* ============================================================
+     DESPERTAR COLOR SYSTEM - EXACT VALUES FROM REFERENCE
+     ============================================================ */
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* Brand Colors - Exact Hex from Design Reference */
+  --despertar-red: 0 77% 51%;        /* #D62E2E - Primary CTA */
+  --despertar-beige: 38 71% 90%;     /* #F7E9D0 - Warm sections */
+  --despertar-orange: 28 100% 50%;   /* #FF7A00 - Secondary CTA */
+  --despertar-text: 0 0% 10%;        /* #1A1A1A - Primary text */
+  --despertar-bg: 33 100% 97%;       /* #FFF9F3 - Page background */
+  --despertar-white: 0 0% 100%;      /* #FFFFFF - Cards */
 
-  /* Popovers with white background */
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  /* Semantic Color Mapping */
+  --background: var(--despertar-bg);
+  --foreground: var(--despertar-text);
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
+  --card: var(--despertar-white);
+  --card-foreground: var(--despertar-text);
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  --popover: var(--despertar-white);
+  --popover-foreground: var(--despertar-text);
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
+  --primary: var(--despertar-red);
+  --primary-foreground: var(--despertar-white);
+
+  --secondary: var(--despertar-beige);
+  --secondary-foreground: var(--despertar-text);
+
+  --muted: var(--despertar-beige);
   --muted-foreground: 0 0% 40%;
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  --accent: var(--despertar-orange);
+  --accent-foreground: var(--despertar-white);
 
-  /* Destructive: Clean red */
   --destructive: 0 70% 50%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive-foreground: var(--despertar-white);
 
-  /* Borders: Subtle gray */
   --border: 0 0% 90%;
   --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  --ring: var(--despertar-red);
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border Radius - Exact from Reference */
+  --radius: 0.75rem; /* 12px */
+  --radius-button: 0.5rem; /* 8px */
 
-  /* Sidebar: Clean white with black text */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
+  /* Sidebar Colors */
+  --sidebar-background: var(--despertar-white);
+  --sidebar-foreground: var(--despertar-text);
+  --sidebar-primary: var(--despertar-red);
+  --sidebar-primary-foreground: var(--despertar-white);
+  --sidebar-accent: var(--despertar-beige);
+  --sidebar-accent-foreground: var(--despertar-text);
   --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-ring: var(--despertar-red);
+
+  /* ============================================================
+     TYPOGRAPHY SYSTEM - EXACT FROM REFERENCE
+     ============================================================ */
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing System - 8px Grid */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 1rem;     /* 16px */
+  --spacing-md: 1.5rem;   /* 24px */
+  --spacing-lg: 2rem;     /* 32px */
+  --spacing-xl: 3rem;     /* 48px */
+  --spacing-2xl: 5rem;    /* 80px */
+
+  /* Shadows - Exact from Reference */
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-button: 0 2px 8px rgba(214, 46, 46, 0.3);
+
+  /* Transitions */
+  --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark {
@@ -168,28 +200,96 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
+/* ============================================================
+   BASE STYLES - DESPERTAR TYPOGRAPHY
+   ============================================================ */
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
+/* ============================================================
+   TYPOGRAPHY SCALE - EXACT FROM REFERENCE
+   ============================================================ */
+
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: hsl(var(--foreground));
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
-/* Clean button styles */
+h1 {
+  font-size: 3rem;        /* 48px */
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.25rem;     /* 36px */
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;      /* 24px */
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;     /* 20px */
+  font-weight: 600;
+}
+
+h5, h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: hsl(var(--despertar-red));
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+a:hover {
+  color: hsl(var(--despertar-orange));
+}
+
+/* ============================================================
+   BUTTON STYLES - EXACT FROM REFERENCE
+   ============================================================ */
+
 button {
+  font-family: var(--font-heading);
   font-weight: 500;
+  transition: var(--transition-base);
+  cursor: pointer;
 }
 
-/* Subtle shadows for depth */
+/* ============================================================
+   CUSTOM SHADOW SYSTEM - EXACT FROM REFERENCE
+   ============================================================ */
+
 .shadow-sm {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
@@ -200,4 +300,28 @@ button {
 
 .shadow-md {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.shadow-card-hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.shadow-button {
+  box-shadow: var(--shadow-button);
+}
+
+/* ============================================================
+   DESPERTAR GRADIENT UTILITIES
+   ============================================================ */
+
+.gradient-hero {
+  background: linear-gradient(135deg, hsl(var(--despertar-red)) 0%, hsl(var(--despertar-beige)) 100%);
+}
+
+.gradient-red-beige {
+  background: linear-gradient(135deg, hsl(var(--despertar-red)) 0%, hsl(var(--despertar-beige)) 100%);
 }

@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Despertar – Sabedoria, Propósito e Transformação para Jovens",
+  description: "Aprenda a viver com sabedoria e propósito através do método Despertar.",
 };
 
 export default function RootLayout({
